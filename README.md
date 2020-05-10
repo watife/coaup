@@ -1,2 +1,2 @@
 # coaup
-Collaboration tool
+Invoicing tool for both company and staff
