@@ -12,7 +12,14 @@
     "mongoose": "^5.9.12",
     "morgan": "^1.10.0"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "scripts": {
     "start": "nodemon -r esm src/index.js"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
+    "jest": "^26.0.1"
   }
 }

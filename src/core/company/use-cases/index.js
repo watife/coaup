@@ -2,9 +2,18 @@ import makeAddCompany from './add-company';
 import makeFindAllCompany from './find-company';
 import makeFindOneCompany from './findone-company';
 import makeAuthCompany from './auth-company';
-import companyDb from '../data-access';
-import compareHash from '../../helpers/compareHash';
-import tokenGenerator from '../../helpers/tokenGenerator';
+/**
+ * Database access {from data-acess}
+ */
+import db from '../../../database';
+
+/**
+ * Helpers
+ */
+import compareHash from '../../../helpers/compareHash';
+import tokenGenerator from '../../../helpers/tokenGenerator';
+
+const { companyDb } = db;
 
 const addCompany = makeAddCompany({ companyDb })
 const findAllCompany = makeFindAllCompany({ companyDb })
@@ -19,4 +28,3 @@ const companyService = Object.freeze({
 })
 
 export default companyService;
-export {addCompany, findAllCompany, findOneCompany, authCompany}

@@ -5,13 +5,14 @@ export default function makeCompanyDb ({ makeDb, CompanyModel }) {
     findOne,
     findByEmail,
     findAndPopulate,
+    findOneAndUpdate,
   })
 
   async function create (companyData) {
     await makeDb();
-    const result = await CompanyModel.create(companyData).lean();
+    const result = await CompanyModel.create(companyData);
 
-    if (result._id) delete result['password'];
+    if (result) delete result['password'];
 
     return result;
   }
@@ -26,23 +27,29 @@ export default function makeCompanyDb ({ makeDb, CompanyModel }) {
     await makeDb();
     const result = await CompanyModel.findById(id).lean();
 
-    if (result._id) delete result['password'];
+    if (result) delete result['password'];
 
     return result;
   }
 
   async function findByEmail({ email }) {
     await makeDb();
-    const result = await CompanyModel.find({ email }).lean();
+    const result = await CompanyModel.findOne({ email }).lean();
 
-    if (result._id) delete result['password'];
+    if (result) delete result['password'];
 
     return result;
   }
 
   async function findAndPopulate({ email }) {
     await makeDb();
-    const result = await CompanyModel.findOne({ email }).populate().lean();
+    const result = await CompanyModel.findOne({ email }).populate('staff').lean();
+    return result;
+  }
+
+  async function findOneAndUpdate({ id, updateData }) {
+    await makeDb();
+    const result = await CompanyModel.findByIdAndUpdate(id, updateData).lean();
     return result;
   }
 }

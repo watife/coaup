@@ -3,10 +3,11 @@ import { Router } from "express";
 /**
  * Dependencies {controllers}
  */
-import { postCompany, findAllCompanies, findCompanyById, loginCompany } from '../controllers';
+import companyController from '../controllers';
 
-import authenticateJWT from '../../middlewares/jwt-validator';
+import authenticateJWT from '../../../middlewares/jwt-validator';
 
+const { postCompany, findAllCompanies, findCompanyById, loginCompany } = companyController
 
 const router = Router();
 
