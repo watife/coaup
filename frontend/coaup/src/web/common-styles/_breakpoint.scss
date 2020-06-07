@@ -1,0 +1,21 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint == xs {
+      @media (min-width: var(--breakpoint-xs)) { @content };
+  }
+
+  @if $breakpoint == sm {
+      @media (min-width: var(--breakpoint-sm)) { @content };
+  }
+
+  @if $breakpoint == md {
+      @media (min-width: var(--breakpoint-md)) { @content };
+  }
+
+  @if $breakpoint == lg {
+      @media (min-width: var(--breakpoint-lg)) { @content };
+  }
+
+  @if $breakpoint == xl {
+      @media (min-width: var(--breakpoint-xl)) { @content };
+  }
+}

@@ -1,0 +1,56 @@
+.checkbox__input {
+  display: none;
+
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  & + label:before {
+    content: "";
+    border-radius: 3px;
+    display: block;
+    width: 22px;
+    height: 22px;
+    border: var(--border-grey);
+  }
+
+  &:checked + label:before {
+    width: 24px;
+    height: 24px;
+    background: var(--color-checkbox-bg);
+    border: none;
+  }
+
+  &:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+  }
+
+  // Disabled box.
+  &:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+
+  &:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 11px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
+      4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+  }
+}
+.checkbox__label {
+  &::before {
+    margin-right: 10px;
+  }
+  display: flex;
+  text-transform: capitalize;
+}
