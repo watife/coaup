@@ -1,0 +1,61 @@
+:root {
+  // main colors
+  --color-primary-main: #080816;
+  --color-primary-dark: #21212d;
+  --color-primary-light: #393945;
+  --color-secondary-main: #52525c;
+  --color-secondary-dark: #6b6b73;
+  --color-secondary-light: #84848b;
+  --color-grey-main: #9c9ca2;
+  --color-grey-dark: #b5b5b9;
+  --color-grey-light: #ceced0;
+  --color-white-main: #ffffff;
+  --color-white-dark: #e6e6e8;
+
+  // Label
+  --color-label: rgba(33, 33, 45, 0.7);
+
+  // Border
+  --border-grey: 1px solid #ceced0;
+  --border-dark: 1px solid #080816;
+  --border-error: 1px solid #E12D39;
+
+  // btn color
+  --color-btn-primary: #080816;
+  --color-btn-primary-active: #393945;
+  --color-btn-primary-hover: #21212d;
+  --color-btn-primary-disabled: #9c9ca2;
+
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-active-text: #ffffff;
+  --color-btn-primary-disabled-text: #52525c;
+
+  --color-checkbox-bg: #080816;
+  --color-checkbox-tick: #ffffff;
+
+  // header colors
+  --color-headertext: #393945;
+  --color-subtitletext: #b5b5b9;
+
+  // error colors
+  --color-errortext: #E12D39;
+
+  --font-h1: normal 300 4.8rem/6rem "Rubik";
+  --font-h2: normal 300 3.6rem/5rem "Rubik";
+  --font-h3: normal 400 3.6rem/5rem "Rubik";
+  --font-h4: normal 500 2.4rem/3rem "Rubik";
+  --font-body: normal 400 1.6rem/2rem "Rubik";
+  --font-label: normal 300 1.4rem/2rem "Rubik";
+  --font-subtitle-1: normal 300 2.6rem/3.6rem "Rubik";
+  --font-subtitle-2: normal 300 2rem/2.6rem "Rubik";
+  --font-subtitle-3: normal 300 1.8rem/2rem "Rubik";
+  --font-subtitle-4: normal 300 1.6rem/2rem "Rubik";
+
+  // breakpoints
+  --breakpoint-max: 1440px;
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 960px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1920px;
+}

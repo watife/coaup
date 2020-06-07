@@ -1,0 +1,35 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+* {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a,
+a:visited {
+  color: inherit;
+}
+
+h1 {
+  font: var(--font-h1);
+  color: var(--color-headertext);
+}
+
+h2 {
+  font: var(--font-h2);
+  color: var(--color-headertext);
+}
+
+h3 {
+  font: var(--font-h3);
+  color: var(--color-headertext);
+}

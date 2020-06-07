@@ -1,0 +1,84 @@
+.register {
+  & header {
+    text-align: center;
+  }
+
+  &-subtitle {
+    font: var(--font-subtitle-1);
+    color: var(--color-subtitletext);
+  }
+}
+
+.register-main {
+  margin-top: 65px;
+  display: flex;
+}
+
+.register-form {
+  flex: 0 0 40%;
+  padding-left: 50px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+  // border-right: var(--border-dark);
+  // border-width: 2px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 220px;
+    bottom: 0;
+    height: 65%;
+    left: 50%;
+    border-left: var(--border-dark);
+    border-radius: 100px;
+    transform: translate(-50%);
+    border-width: 2px;
+  }
+}
+
+.register-input:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.register-btn {
+  max-width: 300px;
+  margin-top: 40px;
+}
+
+.register-billing {
+  text-align: left;
+
+  &__title {
+    color: var(--color-label);
+  }
+
+  &__checkbox {
+    display: flex;
+    max-width: 40%;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+}
+
+.register-image {
+  padding-left: 100px;
+  margin-top: 40px;
+
+  &__privacy {
+    margin-top: 80px;
+    color: var(--color-secondary-light);
+  }
+  &__login {
+    margin-top: 40px;
+    color: var(--color-secondary-light);
+    text-align: center;
+  }
+
+  & span {
+    color: var(--color-primary-main);
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
