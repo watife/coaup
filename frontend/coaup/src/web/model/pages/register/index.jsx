@@ -1,57 +1,46 @@
-import React from "react";
-import { Button, Input, Checkbox } from "../../../components";
-import { useForm, ErrorMessage } from "react-hook-form";
-import Image from "./image";
+import React from 'react';
+import { Button, Input, Checkbox } from '../../../components';
+import { useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
-import "./style.scss";
+import Image from './image';
 
-export const Register = () => {
-  const { register, handleSubmit, errors, getValues, formState } = useForm({mode: "onChange"});
-  const { isSubmitting } = formState;
-  const onSubmit = data => console.log(data);
+import './style.scss';
 
-  const RegisterInputs = [
-    {
-      name: "company_name",
-      label: "company name",
-      type: "text"
-    },
-    {
-      name: "company_address",
-      label: "company address",
-      type: "text"
-    },
-    {
-      name: "email",
-      label: "email",
-      type: "text"
-    },
-    {
-      name: "password",
-      label: "password",
-      type: "password"
-    },
-    {
-      name: "password_confirm",
-      label: "confirm password",
-      type: "password"
-    },
-  ]
+// import {createCompany, getCompany} from "../../../../core/company/presentation/redux";
+import companyService from '../../../../core/company/use-cases';
 
-  const RegisterCheckbox = [
-    {
-      name:"salary",
-      label: "salary",
-      value: "salary",
-    },
-    {
-      name:"invoicing",
-      label: "invoicing",
-      value: "invoicing"
+const RegisterCheckbox = [
+  {
+    name: 'salary',
+    label: 'salary',
+    value: 'salary',
+  },
+  {
+    name: 'invoicing',
+    label: 'invoicing',
+    value: 'invoicing',
+  },
+];
+
+const Register = () => {
+  const { register, handleSubmit, errors, formState, watch } = useForm({
+    mode: 'onChange',
+    validateCriteriaMode: 'all',
+  });
+  const { isSubmitting, isValid } = formState;
+  const history = useHistory();
+
+  const onSubmit = async (data) => {
+    try {
+      console.log('data', data);
+      const createUs = await companyService.postCompany(data);
+    } catch (e) {
+      if (e.message === 'create Network Error') history.push('/network');
     }
-  ]
+  };
 
-  // @TODO validate billing 
+  // @TODO validate billing
   // const validateBilling = _ => {
   //   const values = getValues({ nest: true });
   //
@@ -59,8 +48,6 @@ export const Register = () => {
   //     (values.salary || values.invoicing )|| "At least one billing method should be selected"
   //   );
   // };
-
-  console.log(errors)
 
   return (
     <div className="register">
@@ -70,17 +57,66 @@ export const Register = () => {
       </header>
       <div className="register-main">
         <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-          {RegisterInputs.map(inp => (
-            <Input
-              key={inp.name}
-              type={inp.type}
-              name={inp.name}
-              label={inp.label}
-              className="register-input"
-              ref={register({ required: `${inp.label} is required` })}
-              error={errors[inp.name] && errors[inp.name].message}
-            />
-          ))}
+          <Input
+            type="text"
+            label="company name"
+            name="company_name"
+            className="register-input"
+            ref={register({ required: `company name is required` })}
+            error={errors['company_name'] && errors['company_name'].message}
+          />
+          <Input
+            type="text"
+            label="company address"
+            name="company_address"
+            className="register-input"
+            ref={register({
+              required: `company address is required`,
+              minLength: 8,
+            })}
+            error={
+              (errors['company_address']?.type === 'minLength' &&
+                'Company address must be minimum of 8') ||
+              errors['company_address']?.message
+            }
+          />
+          <Input
+            type="email"
+            label="email"
+            name="email"
+            className="register-input"
+            ref={register({ required: `password is required` })}
+            error={errors['email'] && errors['email'].message}
+          />
+          <Input
+            type="password"
+            label="password"
+            name="password"
+            className="register-input"
+            ref={register({
+              required: `password is required`,
+              pattern: /^[a-zA-Z0-9]{3,30}$/,
+            })}
+            error={
+              (errors['password']?.type === 'pattern' &&
+                'password is not valid ') ||
+              errors['password']?.message
+            }
+            autoComplete="new-password"
+          />
+          <Input
+            type="password"
+            label="confirm password"
+            name="password_confirm"
+            className="register-input"
+            ref={register({
+              validate: (value) =>
+                value === watch('password') || "password doesn't match",
+            })}
+            error={
+              errors['password_confirm']?.message
+            }
+          />
 
           <div className="register-billing">
             <p className="register-billing__title">
@@ -88,8 +124,9 @@ export const Register = () => {
             </p>
 
             <div className="register-billing__checkbox">
-              {RegisterCheckbox.map(check => (
+              {RegisterCheckbox.map((check) => (
                 <Checkbox
+                  key={check.name}
                   label={check.label}
                   name={check.name}
                   value={check.value}
@@ -99,7 +136,11 @@ export const Register = () => {
             </div>
           </div>
 
-          <Button type="submit" className="register-btn" disabled={!formState.isValid || isSubmitting}>
+          <Button
+            type="submit"
+            className="register-btn"
+            disabled={!isValid || isSubmitting}
+          >
             Sign Up
           </Button>
         </form>
@@ -117,3 +158,5 @@ export const Register = () => {
     </div>
   );
 };
+
+export default Register;

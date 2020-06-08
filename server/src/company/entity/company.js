@@ -1,19 +1,19 @@
 const modelCompany = ({ validate, makeHash }) => {
   return function makeCompany ({
-    companyName,
-    address,
+    company_name,
+    company_address,
     password,
     repeat_password,
     email,
   } = {}) {
 
-    validate({ companyName, address, password, repeat_password, email });
+    validate({ company_name, company_address, password, repeat_password, email });
 
     let hashedPassword = makeHash(password);
 
     return Object.freeze({
-      companyName,
-      address,
+      company_name,
+      company_address,
       email,
       password: hashedPassword,
     })

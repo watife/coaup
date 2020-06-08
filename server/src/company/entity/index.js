@@ -9,6 +9,8 @@ function makeHash (hash) {
 
 function validate (company) {
   let value = companyValidator.validate(company);
+
+  console.log("value", value.error)
   if (value.error) throw new Error(value.error.details[0].message)
   return value;
 };

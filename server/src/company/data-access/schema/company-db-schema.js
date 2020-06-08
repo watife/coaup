@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
 const companySchema = new mongoose.Schema({
-  companyName: {
+  company_name: {
     type: String,
     required: [true, "Company's name is required"],
     unique: true
   },
-  address: {
+  company_address: {
     type: String,
     required: [true, "Address is required"]
   },

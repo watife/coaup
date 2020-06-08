@@ -13,7 +13,7 @@ const Button = forwardRef(
       size = "normal",
       width,
       onClick,
-      disabled=false },
+      disabled },
     ref
   ) => {
     return (
