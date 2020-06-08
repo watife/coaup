@@ -5,7 +5,7 @@ import clsx from "clsx";
 import "./style.scss";
 
 const Input = forwardRef(
-  ({ type, label, name, disabled, className, error }, ref) => {
+  ({ type, label, name, disabled, className, error, autoComplete="off" }, ref) => {
     return (
       <div className={clsx("input-group", className)}>
         <input
@@ -16,6 +16,7 @@ const Input = forwardRef(
           name={name}
           disabled={disabled}
           ref={ref}
+          autoComplete={autoComplete}
         />
         {label && <label htmlFor={name}>{label}</label>}
         <p className="input-error">{error}</p>
@@ -29,13 +30,14 @@ Input.propTypes = {
   name: PropTypes.string,
   error: PropTypes.string,
   disabled: PropTypes.bool,
+  autoComplete: PropTypes.string,
 };
 
 Input.defaultProps = {
   disabled: false,
-  error: '',
+  error: "",
   name: "",
-  defaultChecked: false,
+  autoComplete: "off"
 };
 
 export default Input;

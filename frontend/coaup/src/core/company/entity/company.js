@@ -1,9 +1,9 @@
 const entityCompany = () => {
   return function makeCompany ({
-    companyName,
-    address,
+    company_name,
+    company_address,
     password,
-    repeat_password,
+    password_confirm,
     billing_method,
     email,
   } = {}) {
@@ -11,11 +11,11 @@ const entityCompany = () => {
     // validate({ companyName, address, password, repeat_password, email, billing_method });
 
     return Object.freeze({
-      companyName,
-      address,
+      company_name,
+      company_address,
       email,
       password,
-      repeat_password,
+      password_confirm,
       billing_method
     })
   }

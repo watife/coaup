@@ -9,7 +9,7 @@ export default function makeCompanyDb ({ makeDb, CompanyModel }) {
 
   async function create (companyData) {
     await makeDb();
-    const result = await CompanyModel.create(companyData).lean();
+    const result = await CompanyModel.create(companyData);
 
     if (result._id) delete result['password'];
 
@@ -33,9 +33,9 @@ export default function makeCompanyDb ({ makeDb, CompanyModel }) {
 
   async function findByEmail({ email }) {
     await makeDb();
-    const result = await CompanyModel.find({ email }).lean();
+    const result = await CompanyModel.findOne({ email }).lean();
 
-    if (result._id) delete result['password'];
+    if (result && result._id) delete result['password'];
 
     return result;
   }

@@ -10,8 +10,8 @@ export default function makeAddCompany ({ addCompany, Resp }) { //inject the use
         company: newCompany
       }
 
-      Resp.responseJSON(res, "Created", response)
-      // return res.status().json();
+      // Resp.responseJSON(res, "Created", response)
+      return res.status().json();
 
     } catch (error) {
       return res.status(422).json({
