@@ -5,8 +5,7 @@ import { Router } from "express";
  */
 import { postCompany, findAllCompanies, findCompanyById, loginCompany } from '../controllers';
 
-import authenticateJWT from '../../middlewares/jwt-validator';
-
+import authenticateJWT from '../../../middlewares/jwt-validator';
 
 const router = Router();
 

@@ -8,10 +8,10 @@ require('dotenv').config()
 /**
  * app routes
  */
-import companyRoutes from './company/express-routes'
+import companyRoutes from './core/company/express-routes'
 
 const app = express()
-const PORT = process.env.PORT || 5757;
+const PORT = process.env.PORT || 4000;
 app.use(bodyParser.json())
 app.use(helmet())
 app.use(cors())

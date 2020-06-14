@@ -1,19 +1,19 @@
 import {
-  POST_COMPANY,
-  POST_COMPANY_ERROR,
-  POST_COMPANY_SUCCESS
+  GET_COMPANY,
+  FETCH_COMPANY_SUCCESS,
+  FETCH_COMPANY_ERROR
 } from "./actions";
 
 import companyService from "../../use-cases";
 import {apiRequest} from "../../../common/redux/action";
 
-const { postCompany } = companyService;
+const { getCompanies } = companyService;
 
-export const createCompany = ({dispatch}) => next => action => {
+export const getCompany = ({dispatch}) => next => action => {
   next(action);
-  if (action.type === POST_COMPANY) {
-    dispatch(apiRequest(postCompany, action.payload, POST_COMPANY_SUCCESS, POST_COMPANY_ERROR));
+  if (action.type === GET_COMPANY) {
+    dispatch(apiRequest(getCompanies, action.payload, FETCH_COMPANY_SUCCESS, FETCH_COMPANY_ERROR));
   }
 };
 
-export const companyMdl = [createCompany];
+export const companyMdl = [getCompany];

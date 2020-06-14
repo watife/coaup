@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Input, Checkbox } from '../../../components';
+import { Button, Input, Checkbox } from 'web/components';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -7,8 +7,7 @@ import Image from './image';
 
 import './style.scss';
 
-// import {createCompany, getCompany} from "../../../../core/company/presentation/redux";
-import companyService from '../../../../core/company/use-cases';
+import companyService from 'core/company/use-cases';
 
 const RegisterCheckbox = [
   {
@@ -24,7 +23,7 @@ const RegisterCheckbox = [
 ];
 
 const Register = () => {
-  const { register, handleSubmit, errors, formState, watch } = useForm({
+  const { register, handleSubmit, errors, getValues, setError, formState, watch } = useForm({
     mode: 'onChange',
     validateCriteriaMode: 'all',
   });
@@ -33,21 +32,27 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log('data', data);
-      const createUs = await companyService.postCompany(data);
+      const billing_method = (data.salary && data.invoicing) ? "both" : (data.salary || data.invoicing);
+      const registerData = { ...data, billing_method };
+      await companyService.postCompany(registerData);
     } catch (e) {
       if (e.message === 'create Network Error') history.push('/network');
+
+      if (e.message === 'company already exists')  setError('company_name', 'validate', e.message);
     }
   };
 
   // @TODO validate billing
   // const validateBilling = _ => {
   //   const values = getValues({ nest: true });
-  //
+
   //   return (
   //     (values.salary || values.invoicing )|| "At least one billing method should be selected"
   //   );
   // };
+
+  console.log(errors)
+  console.log("values", getValues())
 
   return (
     <div className="register">

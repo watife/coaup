@@ -1,4 +1,4 @@
-export default function makeAddCompany ({ addCompany, Resp }) { //inject the use-case for adding company
+export default function makeAddCompany ({ addCompany }) { //inject the use-case for adding company
   return async function PostCompany(req, res) {
     try {
       const { body } = req;
@@ -10,8 +10,7 @@ export default function makeAddCompany ({ addCompany, Resp }) { //inject the use
         company: newCompany
       }
 
-      Resp.responseJSON(res, "Created", response)
-      // return res.status().json();
+      return res.status(201).json(response);
 
     } catch (error) {
       return res.status(422).json({

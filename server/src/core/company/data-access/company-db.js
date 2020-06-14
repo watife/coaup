@@ -3,13 +3,13 @@ export default function makeCompanyDb ({ makeDb, CompanyModel }) {
     findAll,
     create,
     findOne,
-    findByEmail,
+    findIfExists,
     findAndPopulate,
   })
 
   async function create (companyData) {
     await makeDb();
-    const result = await CompanyModel.create(companyData).lean();
+    const result = await CompanyModel.create(companyData);
 
     if (result._id) delete result['password'];
 
@@ -31,11 +31,12 @@ export default function makeCompanyDb ({ makeDb, CompanyModel }) {
     return result;
   }
 
-  async function findByEmail({ email }) {
+  async function findIfExists({ email, company_name }) {
     await makeDb();
-    const result = await CompanyModel.find({ email }).lean();
-
-    if (result._id) delete result['password'];
+    const result = await CompanyModel.findOne({$or: [
+      {email},
+      {company_name}
+  ]}).lean();
 
     return result;
   }
