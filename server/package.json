@@ -13,6 +13,6 @@
     "morgan": "^1.10.0"
   },
   "scripts": {
-    "start": "nodemon -r esm src/index.js"
+    "start": "nodemon -r esm src"
   }
 }
