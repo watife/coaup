@@ -6,8 +6,13 @@ import db from '../../../database';
 import compareHash from '../../../helpers/compareHash';
 import tokenGenerator from '../../../helpers/tokenGenerator';
 
+/**
+ * Mailing service usecase
+ */
+import mailingService from '../../mailer/use-cases'
+
 const {companyDb} = db;
-const addCompany = makeAddCompany({ companyDb })
+const addCompany = makeAddCompany({ companyDb, mailingService })
 const findAllCompany = makeFindAllCompany({ companyDb })
 const findOneCompany = makeFindOneCompany({ companyDb })
 const authCompany = makeAuthCompany({ companyDb, compareHash, tokenGenerator })

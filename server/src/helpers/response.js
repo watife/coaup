@@ -1,4 +1,3 @@
-
 const statusCode = {
   OK: 200,
   Created: 201,
@@ -6,13 +5,11 @@ const statusCode = {
   UnAuthorized: 401,
   NotFound: 404,
   ServerError: 500,
-  NotProcessed: 422
+  NotProcessed: 422,
 }
 
 const responseJSON = (res, status, body) => {
-  return (
-    res.status(statusCode[status]).json(body)
-  )
+  return res.status(statusCode[status]).json(body)
 }
 
 const responseError = (res, status, body) => {
@@ -21,7 +18,7 @@ const responseError = (res, status, body) => {
 
 const Resp = Object.freeze({
   responseJSON,
-  responseError
+  responseError,
 })
 
 export default Resp
