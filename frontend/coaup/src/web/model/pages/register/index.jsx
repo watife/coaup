@@ -100,7 +100,7 @@ const Register = () => {
             className="register-input"
             ref={register({
               required: `password is required`,
-              pattern: /^[a-zA-Z0-9]{3,30}$/,
+              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
             })}
             error={
               (errors['password']?.type === 'pattern' &&
