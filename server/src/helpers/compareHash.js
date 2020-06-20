@@ -1,8 +1,8 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt'
 
-async function compareHash (plain, hashed) {
-  const match = await bcrypt.compare(plain, hashed);
-  return match;
-};
+async function compareHash(plain, hashed) {
+  const match = await bcrypt.compare(plain, hashed)
+  return match
+}
 
-export default compareHash;
+export default compareHash

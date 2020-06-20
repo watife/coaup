@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import helmet from 'helmet'
 const morgan = require('morgan')
-require('dotenv').config()
+
 
 /**
  * app routes
@@ -11,14 +11,14 @@ require('dotenv').config()
 import companyRoutes from './core/company/express-routes'
 
 const app = express()
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000
 app.use(bodyParser.json())
 app.use(helmet())
 app.use(cors())
 app.use(morgan('dev'))
 
 app.listen(PORT, () => {
-  console.log(`app is listening on port: ${PORT}` )
+  console.log(`app is listening on port: ${PORT}`)
 })
 
-app.use("/api/v1/company/", companyRoutes);
+app.use('/api/v1/company/', companyRoutes)
