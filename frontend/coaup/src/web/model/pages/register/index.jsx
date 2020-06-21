@@ -1,13 +1,14 @@
-import React from 'react';
-import { Button, Input, Checkbox } from 'web/components';
-import { useHistory } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import React from 'react'
+import { Button, Input, Checkbox } from 'web/components'
+import { useHistory } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { useSnackbar } from 'notistack'
 
-import Image from './image';
+import Image from './image'
 
-import './style.scss';
+import './style.scss'
 
-import companyService from 'core/company/use-cases';
+import companyService from 'core/company/use-cases'
 
 const RegisterCheckbox = [
   {
@@ -20,27 +21,50 @@ const RegisterCheckbox = [
     label: 'invoicing',
     value: 'invoicing',
   },
-];
+]
 
 const Register = () => {
-  const { register, handleSubmit, errors, getValues, setError, formState, watch } = useForm({
+  const {
+    register,
+    handleSubmit,
+    errors,
+    setError,
+    formState,
+    watch,
+  } = useForm({
     mode: 'onChange',
     validateCriteriaMode: 'all',
-  });
-  const { isSubmitting, isValid } = formState;
-  const history = useHistory();
+  })
+  const { isSubmitting, isValid } = formState
+  const history = useHistory()
+  const { enqueueSnackbar } = useSnackbar()
 
   const onSubmit = async (data) => {
     try {
-      const billing_method = (data.salary && data.invoicing) ? "both" : (data.salary || data.invoicing);
-      const registerData = { ...data, billing_method };
-      await companyService.postCompany(registerData);
-    } catch (e) {
-      if (e.message === 'create Network Error') history.push('/network');
+      const billing_method =
+        data.salary && data.invoicing
+          ? 'both'
+          : data.salary || data.invoicing
+      const registerData = { ...data, billing_method }
+      const companyRegistered = await companyService.postCompany(
+        registerData,
+      )
 
-      if (e.message === 'company already exists')  setError('company_name', 'validate', e.message);
+      enqueueSnackbar(companyRegistered.data.company, {
+        variant: 'success',
+      })
+    } catch (e) {
+      if (e.message === 'create Network Error')
+        history.push('/network')
+
+      if (e.message === 'company already exists')
+        setError('company_name', 'validate', e.message)
+
+      enqueueSnackbar(e.message, {
+        variant: 'error',
+      })
     }
-  };
+  }
 
   // @TODO validate billing
   // const validateBilling = _ => {
@@ -51,24 +75,28 @@ const Register = () => {
   //   );
   // };
 
-  console.log(errors)
-  console.log("values", getValues())
-
   return (
     <div className="register">
       <header>
-        <h1>Sign Up</h1>
-        <p className="register-subtitle">Let's get your company started</p>
+        <h2>Sign Up</h2>
+        <p className="register-subtitle">
+          Let's get your company started
+        </p>
       </header>
       <div className="register-main">
-        <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="register-form"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Input
             type="text"
             label="company name"
             name="company_name"
             className="register-input"
             ref={register({ required: `company name is required` })}
-            error={errors['company_name'] && errors['company_name'].message}
+            error={
+              errors['company_name'] && errors['company_name'].message
+            }
           />
           <Input
             type="text"
@@ -90,7 +118,7 @@ const Register = () => {
             label="email"
             name="email"
             className="register-input"
-            ref={register({ required: `password is required` })}
+            ref={register({ required: `email is required` })}
             error={errors['email'] && errors['email'].message}
           />
           <Input
@@ -100,7 +128,7 @@ const Register = () => {
             className="register-input"
             ref={register({
               required: `password is required`,
-              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+              pattern: /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
             })}
             error={
               (errors['password']?.type === 'pattern' &&
@@ -116,11 +144,10 @@ const Register = () => {
             className="register-input"
             ref={register({
               validate: (value) =>
-                value === watch('password') || "password doesn't match",
+                value === watch('password') ||
+                "password doesn't match",
             })}
-            error={
-              errors['password_confirm']?.message
-            }
+            error={errors['password_confirm']?.message}
           />
 
           <div className="register-billing">
@@ -161,7 +188,7 @@ const Register = () => {
         </section>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

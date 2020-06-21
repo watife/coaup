@@ -6,7 +6,7 @@ import makeAddProject from './add-project';
 import db from '../../../database';
 
 
-const { projectDb, staffDb, companyDb } = db;
+const { even, staffDb, companyDb } = db;
 
 const addProject = makeAddProject({ projectDb, staffDb, companyDb })
 

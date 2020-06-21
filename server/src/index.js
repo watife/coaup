@@ -9,6 +9,7 @@ const morgan = require('morgan')
  * app routes
  */
 import companyRoutes from './core/company/express-routes'
+import eventRoutes from './core/events/express-routes'
 
 const app = express()
 const PORT = process.env.PORT || 4000
@@ -22,3 +23,4 @@ app.listen(PORT, () => {
 })
 
 app.use('/api/v1/company/', companyRoutes)
+app.use('/api/v1/event/', eventRoutes)

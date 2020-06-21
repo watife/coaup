@@ -17,7 +17,7 @@ export default function makeSendMail({
 
     const status = await mailingAPI.send(newMailData)
 
-    if (status[0].Response.code !== 202)
+    if (status[0].statusCode !== 202)
       throw new Error(
         "Your email verification wasn't sent, please contact admin",
       )
