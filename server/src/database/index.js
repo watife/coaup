@@ -5,6 +5,8 @@ import makeStaffDb from '../core/staff/data-acess/staff-db'
 import StaffModel from '../core/staff/data-acess/staff-db-schema'
 import makeProjectDb from '../core/project/data-acess/project-db'
 import ProjectModel from '../core/project/data-acess/project-db-schema'
+import makeEventDb from '../core/events/data-access/event-db'
+import EventModel from '../core/events/data-access/event-db-schema'
 
 require('dotenv').config()
 
@@ -33,11 +35,13 @@ const isValid = (id) => {
 const companyDb = makeCompanyDb({ makeDb, CompanyModel })
 const staffDb = makeStaffDb({ makeDb, StaffModel, isValid })
 const projectDb = makeProjectDb({ makeDb, ProjectModel })
+const eventDb = makeEventDb({ makeDb, EventModel })
 
 const db = Object.freeze({
   companyDb,
   staffDb,
   projectDb,
+  eventDb
 })
 
 export default db

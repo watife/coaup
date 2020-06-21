@@ -1,5 +1,7 @@
 const Joi = require('@hapi/joi');
 
+const pattern = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+
 const companyValidator = Joi.object({
 	company_name: Joi.string()
 		.alphanum()
@@ -14,7 +16,7 @@ const companyValidator = Joi.object({
 		.required(),
 
 	password: Joi.string()
-		.pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+		.pattern(new RegExp(pattern))
 		.trim()
 		.required(),
 

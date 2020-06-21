@@ -10,8 +10,8 @@ const modelCompany = ({ validate, makeHash }) => {
 
     company_name = company_name && company_name.trim().toLowerCase();
     company_address = company_address && company_address.trim().toLowerCase();
-    password = password && password.trim().toLowerCase();
-    password_confirm = password_confirm && password_confirm.trim().toLowerCase();
+    password = password && password.trim();
+    password_confirm = password_confirm && password_confirm.trim();
     billing_method = billing_method && billing_method.trim().toLowerCase();
     email = email && email.trim().toLowerCase();
 
