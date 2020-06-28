@@ -1,0 +1,30 @@
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.login-aside {
+  height: 100%;
+  flex:  0 0 40%;
+  width: 100%;
+}
+
+.login-image {
+  height: 100%;
+}
+
+.login-main {
+  margin-left: 70px;
+  flex: 0 0 400px;
+}
+
+.login-input {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.login-btn {
+  width: 50%;
+  margin-top: 50px;
+}

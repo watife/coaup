@@ -4,6 +4,7 @@ import clsx from 'clsx'
 
 import './style.scss'
 
+// eslint-disable-next-line react/display-name
 const CheckBox = forwardRef(
   ({ label, className, checked, name, disabled, value }, ref) => {
     return (
@@ -22,11 +23,11 @@ const CheckBox = forwardRef(
           htmlFor={name}
           className={clsx(label && 'checkbox__label')}
         >
-          {label}
+          <p>{label}</p>
         </label>
       </div>
     )
-  },
+  }
 )
 
 CheckBox.propTypes = {
@@ -35,11 +36,17 @@ CheckBox.propTypes = {
   onChange: PropTypes.func,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
+  label: PropTypes.string,
+  className: PropTypes.string,
+  checked: PropTypes.bool
 }
 
 CheckBox.defaultProps = {
   disabled: false,
   defaultChecked: false,
+  label: '',
+  className: '',
+  checked: false
 }
 
 export default CheckBox

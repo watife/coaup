@@ -4,22 +4,14 @@ import 'web/styles/main.scss'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
-import { store } from './web/store'
-import { SnackbarProvider } from 'notistack'
+import store from './core/store'
+import { ToastProvider } from 'react-toast-notifications'
 
 ReactDOM.render(
   <Provider store={store}>
-      <SnackbarProvider
-        hideIconVariant
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        <App />
-      </SnackbarProvider>
+    <App />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )
 
 // If you want your app to work offline and load faster, you can change
