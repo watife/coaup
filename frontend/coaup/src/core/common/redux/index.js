@@ -1,1 +1,1 @@
-export {apiRequest} from "./middleware";
+export { apiRequest } from './middleware'

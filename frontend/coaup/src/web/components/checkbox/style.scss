@@ -1,3 +1,7 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+}
 .checkbox__input {
   display: none;
 
@@ -5,6 +9,9 @@
     position: relative;
     cursor: pointer;
     padding: 0;
+    display: flex;
+    align-items: center;
+    font: var(--font-label);
   }
 
   & + label:before {

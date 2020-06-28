@@ -1,22 +1,21 @@
-export default function makeAddCompany ({ addCompany }) { //inject the use-case for adding company
+export default function makeAddCompany({ addCompany }) {
   return async function PostCompany(req, res) {
     try {
-      const { body } = req;
+      const { body } = req
 
-      const newCompany = await addCompany({...body})
+      const newCompany = await addCompany({ ...body })
 
       const response = {
-        status: "success",
+        status: 'success',
         company: newCompany
       }
 
-      return res.status(201).json(response);
-
+      return res.status(201).json(response)
     } catch (error) {
       return res.status(422).json({
-        status: "error",
+        status: 'error',
         message: error.message
-      });
+      })
     }
   }
 }

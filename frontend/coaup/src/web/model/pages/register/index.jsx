@@ -1,12 +1,14 @@
+/* eslint-disable object-curly-newline */
 import React from 'react'
-import { Button, Input, Checkbox } from 'web/components'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { useSnackbar } from 'notistack'
+// import { useSnackbar } from 'notistack'
 
 import Image from './image'
 
 import './style.scss'
+
+import { Button, Input, Checkbox } from 'web/components'
 
 import companyService from 'core/company/use-cases'
 
@@ -14,13 +16,13 @@ const RegisterCheckbox = [
   {
     name: 'salary',
     label: 'salary',
-    value: 'salary',
+    value: 'salary'
   },
   {
     name: 'invoicing',
     label: 'invoicing',
-    value: 'invoicing',
-  },
+    value: 'invoicing'
+  }
 ]
 
 const Register = () => {
@@ -30,16 +32,16 @@ const Register = () => {
     errors,
     setError,
     formState,
-    watch,
+    watch
   } = useForm({
     mode: 'onChange',
-    validateCriteriaMode: 'all',
+    validateCriteriaMode: 'all'
   })
   const { isSubmitting, isValid } = formState
   const history = useHistory()
-  const { enqueueSnackbar } = useSnackbar()
+  // const { enqueueSnackbar } = useSnackbar()
 
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     try {
       const billing_method =
         data.salary && data.invoicing
@@ -47,12 +49,12 @@ const Register = () => {
           : data.salary || data.invoicing
       const registerData = { ...data, billing_method }
       const companyRegistered = await companyService.postCompany(
-        registerData,
+        registerData
       )
 
-      enqueueSnackbar(companyRegistered.data.company, {
-        variant: 'success',
-      })
+      // enqueueSnackbar(companyRegistered.data.company, {
+      //   variant: 'success'
+      // })
     } catch (e) {
       if (e.message === 'create Network Error')
         history.push('/network')
@@ -60,9 +62,7 @@ const Register = () => {
       if (e.message === 'company already exists')
         setError('company_name', 'validate', e.message)
 
-      enqueueSnackbar(e.message, {
-        variant: 'error',
-      })
+      // enqueueSnackbar(e.message, { variant: 'error' })
     }
   }
 
@@ -78,9 +78,9 @@ const Register = () => {
   return (
     <div className="register">
       <header>
-        <h2>Sign Up</h2>
+        <h1>Sign Up</h1>
         <p className="register-subtitle">
-          Let's get your company started
+          Let&apos;s get your company started
         </p>
       </header>
       <div className="register-main">
@@ -105,7 +105,7 @@ const Register = () => {
             className="register-input"
             ref={register({
               required: `company address is required`,
-              minLength: 8,
+              minLength: 8
             })}
             error={
               (errors['company_address']?.type === 'minLength' &&
@@ -128,7 +128,7 @@ const Register = () => {
             className="register-input"
             ref={register({
               required: `password is required`,
-              pattern: /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+              pattern: /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
             })}
             error={
               (errors['password']?.type === 'pattern' &&
@@ -145,7 +145,7 @@ const Register = () => {
             ref={register({
               validate: (value) =>
                 value === watch('password') ||
-                "password doesn't match",
+                "password doesn't match"
             })}
             error={errors['password_confirm']?.message}
           />
@@ -172,6 +172,7 @@ const Register = () => {
             type="submit"
             className="register-btn"
             disabled={!isValid || isSubmitting}
+            size="big"
           >
             Sign Up
           </Button>

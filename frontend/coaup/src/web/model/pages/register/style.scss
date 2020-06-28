@@ -1,10 +1,14 @@
 .register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
   & header {
-    text-align: center;
+    align-self: flex-start;
   }
 
   &-subtitle {
-    font: var(--font-subtitle-2);
+    font: var(--font-subtitle-1);
     color: var(--color-subtitletext);
     margin-top: 10px;
   }
@@ -13,27 +17,29 @@
 .register-main {
   margin-top: 65px;
   display: flex;
+  width: 100%;
 }
 
 .register-form {
   flex: 0 0 40%;
-  padding-left: 50px;
   padding-right: 100px;
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
-    top: 200px;
+    top: 150px;
     bottom: 0;
-    height: 65%;
+    height: 700px;
     left: 50%;
     border-left: var(--border-dark);
     border-radius: 100px;
     transform: translate(-50%);
-    border-width: 2px;
+    border-width: 1px;
+    border-color: #e6e6e8;
   }
 }
 
@@ -43,7 +49,7 @@
 
 .register-btn {
   max-width: 300px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .register-billing {
@@ -51,11 +57,12 @@
 
   &__title {
     color: var(--color-label);
+    font: var(--font-label);
   }
 
   &__checkbox {
     display: flex;
-    max-width: 40%;
+    max-width: 50%;
     justify-content: space-between;
     margin-top: 16px;
   }
@@ -64,19 +71,22 @@
 .register-image {
   padding-left: 100px;
   margin-top: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__privacy {
     margin-top: 80px;
-    color: var(--color-secondary-light);
+    font-width: 300;
   }
   &__login {
     margin-top: 40px;
-    color: var(--color-secondary-light);
+    font-width: 300;
     text-align: center;
   }
 
   & span {
-    color: var(--color-primary-main);
     font-weight: 500;
     cursor: pointer;
   }

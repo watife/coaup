@@ -1,23 +1,41 @@
-import React from "react";
+import React from 'react'
 
 const Image = () => {
   return (
     <svg
-      width="399"
-      height="319"
+      width="300"
+      height="300"
       viewBox="0 0 399 319"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <linearGradient x1="-.001%" y1="49.997%" x2="100%" y2="49.997%" id="a">
+        <linearGradient
+          x1="-.001%"
+          y1="49.997%"
+          x2="100%"
+          y2="49.997%"
+          id="a"
+        >
           <stop stopColor="#F0F2F5" offset="0%" />
           <stop stopColor="#F5F7F8" offset="99%" />
         </linearGradient>
-        <linearGradient x1="-.008%" y1="50%" x2="100.252%" y2="50%" id="b">
+        <linearGradient
+          x1="-.008%"
+          y1="50%"
+          x2="100.252%"
+          y2="50%"
+          id="b"
+        >
           <stop stopColor="#BBBFD9" offset="1%" />
           <stop stopColor="#D6DBF8" offset="100%" />
         </linearGradient>
-        <linearGradient x1="-.004%" y1="50%" x2="100.252%" y2="50%" id="c">
+        <linearGradient
+          x1="-.004%"
+          y1="50%"
+          x2="100.252%"
+          y2="50%"
+          id="c"
+        >
           <stop stopColor="#BBBFD9" offset="1%" />
           <stop stopColor="#D6DBF8" offset="100%" />
         </linearGradient>
@@ -133,15 +151,33 @@ const Image = () => {
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
-        <linearGradient x1=".16%" y1="49.947%" x2="100%" y2="49.947%" id="o">
+        <linearGradient
+          x1=".16%"
+          y1="49.947%"
+          x2="100%"
+          y2="49.947%"
+          id="o"
+        >
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
-        <linearGradient x1="0%" y1="49.695%" x2="99.74%" y2="49.695%" id="p">
+        <linearGradient
+          x1="0%"
+          y1="49.695%"
+          x2="99.74%"
+          y2="49.695%"
+          id="p"
+        >
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
-        <linearGradient x1="0%" y1="50.034%" x2="99.999%" y2="50.034%" id="q">
+        <linearGradient
+          x1="0%"
+          y1="50.034%"
+          x2="99.999%"
+          y2="50.034%"
+          id="q"
+        >
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
@@ -155,7 +191,13 @@ const Image = () => {
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
-        <linearGradient x1="0%" y1="50.017%" x2="100.018%" y2="50.017%" id="s">
+        <linearGradient
+          x1="0%"
+          y1="50.017%"
+          x2="100.018%"
+          y2="50.017%"
+          id="s"
+        >
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
@@ -169,7 +211,13 @@ const Image = () => {
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
-        <linearGradient x1="-.063%" y1="50%" x2="100%" y2="50%" id="u">
+        <linearGradient
+          x1="-.063%"
+          y1="50%"
+          x2="100%"
+          y2="50%"
+          id="u"
+        >
           <stop stopColor="#753200" offset="0%" />
           <stop stopColor="#A04400" offset="100%" />
         </linearGradient>
@@ -180,7 +228,10 @@ const Image = () => {
           fill="url(#a)"
           fillRule="nonzero"
         />
-        <path fill="#393945" d="M110 3h192v51H110zM303 54h24v134h-24z" />
+        <path
+          fill="#393945"
+          d="M110 3h192v51H110zM303 54h24v134h-24z"
+        />
         <path fill="#080816" d="M303 3h24v51h-24z" />
         <path fill="#9C9CA2" d="M110 54h192v134H110z" />
         <path
@@ -227,7 +278,7 @@ const Image = () => {
         >
           <tspan x="133" y="91">
             1
-          </tspan>{" "}
+          </tspan>{' '}
           <tspan x="133" y="133">
             5
           </tspan>
@@ -381,7 +432,7 @@ const Image = () => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default Image;
+export default Image

@@ -12,13 +12,16 @@
   --color-white-main: #ffffff;
   --color-white-dark: #e6e6e8;
 
+  // Body Color
+  --color-body: rgb(4, 13, 20);
+
   // Label
   --color-label: rgba(33, 33, 45, 0.7);
 
   // Border
   --border-grey: 1px solid #ceced0;
   --border-dark: 1px solid #080816;
-  --border-error: 1px solid #E12D39;
+  --border-error: 1px solid #e12d39;
 
   // btn color
   --color-btn-primary: #080816;
@@ -33,23 +36,27 @@
   --color-checkbox-bg: #080816;
   --color-checkbox-tick: #ffffff;
 
-  // header colors
-  --color-headertext: #393945;
-  --color-subtitletext: #b5b5b9;
+  // header text colors
+  --color-headertext: #040d14;
+  --color-subtitletext: #040d14;
 
   // error colors
-  --color-errortext: #E12D39;
+  --color-errortext: #e12d39;
 
-  --font-h1: normal 300 4.8rem/6rem "Rubik";
-  --font-h2: normal 300 3.6rem/5rem "Rubik";
-  --font-h3: normal 400 3.6rem/5rem "Rubik";
-  --font-h4: normal 500 2.4rem/3rem "Rubik";
-  --font-body: normal 400 1.6rem/2rem "Rubik";
-  --font-label: normal 300 1.4rem/2rem "Rubik";
-  --font-subtitle-1: normal 300 2.6rem/3.6rem "Rubik";
-  --font-subtitle-2: normal 300 2rem/2.6rem "Rubik";
-  --font-subtitle-3: normal 300 1.8rem/2rem "Rubik";
-  --font-subtitle-4: normal 300 1.6rem/2rem "Rubik";
+  // fonts
+  --font-h1: normal 500 2.4rem/3.2rem 'Rubik';
+  //--font-h2: normal 300 3.6rem/5rem "Rubik";
+  //--font-h3: normal 400 3.6rem/5rem "Rubik";
+  //--font-h4: normal 500 2.4rem/3rem "Rubik";
+  --font-body: normal 400 1.4rem/2.4rem 'Rubik';
+  --font-label: normal 400 1.2rem/1.5rem 'Rubik';
+  --font-subtitle-1: normal 300 1.5rem/2.4rem 'Rubik';
+  //--font-subtitle-2: normal 300 2rem/2.6rem "Rubik";
+  //--font-subtitle-3: normal 300 1.8rem/2rem "Rubik";
+  //--font-subtitle-4: normal 300 1.6rem/2rem "Rubik";
+
+  // Input Font
+  --font-input: normal 400 1.4rem/2.4rem 'Rubik';
 
   // breakpoints
   --breakpoint-max: 1440px;

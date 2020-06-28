@@ -1,18 +1,22 @@
-import { Router } from "express";
+import { Router } from 'express'
 
 /**
  * Dependencies {controllers}
  */
-import { postCompany, findAllCompanies, findCompanyById, loginCompany } from '../controllers';
+import {
+  postCompany,
+  findAllCompanies,
+  findCompanyById,
+  loginCompany
+} from '../controllers'
 
-import authenticateJWT from '../../../middlewares/jwt-validator';
+import authenticateJWT from '../../../middlewares/jwt-validator'
 
-const router = Router();
+const router = Router()
 
-router.post("/", postCompany);
-router.post("/auth", loginCompany);
-router.get("/", findAllCompanies);
-router.get("/:id", authenticateJWT, findCompanyById);
+router.post('/', postCompany)
+router.post('/auth', loginCompany)
+router.get('/', findAllCompanies)
+router.get('/:id', authenticateJWT, findCompanyById)
 
-
-export default router;
+export default router

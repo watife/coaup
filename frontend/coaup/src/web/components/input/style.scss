@@ -5,7 +5,7 @@
   & label {
     position: absolute;
     left: 10px;
-    top: -9px;
+    top: -7px;
     padding: 0 4px;
     color: var(--color-label);
     font: var(--font-label);
@@ -15,17 +15,17 @@
 }
 
 .input-field {
-  height: 6rem;
+  height: 4.5rem;
   width: 100%;
   box-sizing: border-box;
-  font: var(--font-body);
+  font: var(--font-input);
   border: var(--border-dark);
   padding-left: 1.5rem;
   border-radius: 3px;
   outline: none;
 
   &:not(:placeholder-shown) {
-    border: var(--border-dark);
+    border: var(--border-grey);
   }
 
   &::placeholder {

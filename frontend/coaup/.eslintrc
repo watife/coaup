@@ -8,7 +8,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:jest/recommended",
     "prettier"
   ],
   "parserOptions": {
@@ -22,11 +21,10 @@
       "version": "detect"
     }
   },
-  "plugins": [
-    "prettier",
-    "react"
-  ],
+  "plugins": ["prettier", "react"],
   "rules": {
+    "no-console": "error",
+    "arrow-parens": "off",
     "space-unary-ops": [
       "error",
       {
@@ -35,10 +33,7 @@
       }
     ],
     "block-spacing": "error",
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ],
+    "object-curly-spacing": ["error", "always"],
     "object-curly-newline": [
       "error",
       {
@@ -66,10 +61,7 @@
         "SwitchCase": 1
       }
     ],
-    "semi": [
-      "error",
-      "never"
-    ],
+    "semi": ["error", "never"],
     "arrow-spacing": "error",
     "space-infix-ops": [
       "error",
@@ -77,14 +69,8 @@
         "int32Hint": true
       }
     ],
-    "react/jsx-equals-spacing": [
-      "error",
-      "never"
-    ],
-    "space-before-blocks": [
-      "error",
-      "always"
-    ],
+    "react/jsx-equals-spacing": ["error", "never"],
+    "space-before-blocks": ["error", "always"],
     "keyword-spacing": [
       "error",
       {
@@ -100,7 +86,6 @@
         "tabWidth": 2,
         "singleQuote": true,
         "trailingComma": "none",
-        "bracketSpacing": true,
         "arrowParens": "avoid"
       }
     ]
