@@ -2,7 +2,7 @@ export default function makeEventDb({ makeDb, EventModel }) {
   return Object.freeze({
     create,
     update,
-    findByDate,
+    findByDate
   })
 
   async function create({ eventData }) {
@@ -10,7 +10,7 @@ export default function makeEventDb({ makeDb, EventModel }) {
     const event = new EventModel({
       staff: eventData.staff,
       company: eventData.company,
-      date: eventData.date,
+      date: eventData.date
     })
 
     event.events.push(eventData.events)
@@ -29,10 +29,9 @@ export default function makeEventDb({ makeDb, EventModel }) {
     return result
   }
 
-
   async function findByDate({ date }) {
-    await makeDb();
-    const result = await EventModel.findOne({ date }).lean();
-    return result;
+    await makeDb()
+    const result = await EventModel.findOne({ date }).lean()
+    return result
   }
 }

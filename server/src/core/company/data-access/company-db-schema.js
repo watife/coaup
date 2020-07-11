@@ -1,30 +1,29 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-const companySchema = new mongoose.Schema({
-  company_name: {
-    type: String,
-    required: [true, "Company's name is required"],
-    unique: true
+const companySchema = new mongoose.Schema(
+  {
+    company_name: {
+      type: String,
+      required: [true, "Company's name is required"],
+      unique: true
+    },
+    company_address: {
+      type: String,
+      required: [true, 'Address is required']
+    },
+    billing_method: {
+      type: String,
+      required: [true, 'Billing Method is required']
+    },
+    auth: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'auth',
+      required: [true, "The user doesn't exist"]
+    }
   },
-  company_address: {
-    type: String,
-    required: [true, "Address is required"]
-  },
-  password: {
-    type: String,
-    required: [true, "Password is required"]
-  },
-  billing_method: {
-    type: String,
-    required: [true, "Billing Method is required"]
-  },
-  email: {
-    type: String,
-    required: [true, "Email is required"],
-    unique: true
-  }
-}, {timestamps: true})
+  { timestamps: true }
+)
 
-const CompanyModel = mongoose.model('company', companySchema);
+const CompanyModel = mongoose.model('company', companySchema)
 
-export default CompanyModel;
+export default CompanyModel

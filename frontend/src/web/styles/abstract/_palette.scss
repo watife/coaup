@@ -1,0 +1,22 @@
+:root {
+  //primary
+  --color-primary-main: #026565;
+  --color-primary-contrast: #f0f7f7;
+  --color-primary-grey: #cbd2d9;
+  --color-primary-red: #e12d39;
+  --color-primary-black: #08081d;
+  --color-primary-white: #ffffff;
+
+  //  light
+  --color-light-main: #277575;
+  --color-light-grey: #e4e7eb;
+  --color-light-black: #252b34;
+
+  //  dark
+  --color-dark-main: #0a3030;
+  --color-dark-grey: #616e7c;
+  --color-dark-black: #08081d;
+
+  // exceptions
+  --color-extra-grey: rgba(255, 255, 255, 0.65)
+}

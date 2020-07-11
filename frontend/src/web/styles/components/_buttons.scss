@@ -1,0 +1,14 @@
+:root {
+  // btn color
+  --color-btn-primary: var(--color-primary-main);
+  --color-btn-primary-active: var(--color-dark-main);
+  --color-btn-primary-hover: rgba(--color-light-main);
+  --color-btn-primary-disabled: var(--color-primary-grey);
+
+  --color-btn-primary-text: var(--color-primary-white);
+  --color-btn-primary-active-text: var(--color-primary-white);
+  --color-btn-primary-disabled-text: var(--color-dark-grey);
+
+  --color-checkbox-bg: var(--color-dark-main);
+  --color-checkbox-tick: var(--color-primary-white);
+}

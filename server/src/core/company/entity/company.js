@@ -1,32 +1,30 @@
-const modelCompany = ({ validate, makeHash }) => {
-  return function makeCompany ({
+const modelCompany = ({ validate }) => {
+  return function makeCompany({
     company_name,
     company_address,
-    password,
-    password_confirm,
     billing_method,
-    email,
+    auth
   } = {}) {
+    company_name = company_name && company_name.trim().toLowerCase()
+    company_address =
+      company_address && company_address.trim().toLowerCase()
+    billing_method =
+      billing_method && billing_method.trim().toLowerCase()
 
-    company_name = company_name && company_name.trim().toLowerCase();
-    company_address = company_address && company_address.trim().toLowerCase();
-    password = password && password.trim();
-    password_confirm = password_confirm && password_confirm.trim();
-    billing_method = billing_method && billing_method.trim().toLowerCase();
-    email = email && email.trim().toLowerCase();
-
-    validate({ company_name, company_address, password, password_confirm, email, billing_method });
-
-    let hashedPassword = makeHash(password);
+    validate({
+      company_name,
+      company_address,
+      billing_method,
+      auth
+    })
 
     return Object.freeze({
       company_name,
       company_address,
-      email,
       billing_method,
-      password: hashedPassword,
+      auth
     })
   }
 }
 
-export default modelCompany;
+export default modelCompany

@@ -4,10 +4,10 @@ import cors from 'cors'
 import helmet from 'helmet'
 const morgan = require('morgan')
 
-
 /**
  * app routes
  */
+import authRoutes from './core/auth/express-routes'
 import companyRoutes from './core/company/express-routes'
 import eventRoutes from './core/events/express-routes'
 
@@ -22,5 +22,6 @@ app.listen(PORT, () => {
   console.log(`app is listening on port: ${PORT}`)
 })
 
+app.use('/api/v1/auth/', authRoutes)
 app.use('/api/v1/company/', companyRoutes)
 app.use('/api/v1/event/', eventRoutes)
