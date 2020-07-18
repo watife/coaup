@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-header-text: var(--color-neutral-darkest);
+  --color-body-text: var(--color-neutral-dark);
+  --color-contrast-text: var(--color-neutral-mid-lightest)
+}
 
 html {
   font-size: 62.5%;
@@ -24,24 +30,41 @@ a:visited {
 }
 
 h1 {
-  font: var(--font-h1);
-  color: var(--color-headertext);
+  font: var(--font-largest);
+  color: var(--color-header-text);
 }
 
 h2 {
-  font: var(--font-h2);
-  color: var(--color-headertext);
+  font: var(--font-larger);
+  color: var(--color-header-text);
 }
 
 h3 {
-  font: var(--font-h3);
-  color: var(--color-headertext);
+  font: var(--font-large);
+  color: var(--color-header-text);
 }
 
 h4 {
-  font: var(--font-h4);
+  font: var(--font-mid);
+  color: var(--color-header-text);
 }
 
 p {
-  font: var(--font-body);
+  font: var(--font-small);
+  color: var(--color-body-text);
+}
+
+label {
+  font: var(--font-small);
+  font-weight: 600;
+  color: var(--color-body-text);
+}
+
+hr {
+
+    border: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-neutral-lighter);
+    margin: 0;
 }

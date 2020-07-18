@@ -1,0 +1,28 @@
+.progressbar {
+  width: 100%;
+  background-color: var(--color-secondary-light-main);
+  border-radius: 100px;
+  height: 7px;
+
+  & span {
+    display: block;
+    height: 100%;
+  }
+
+  &--indicator {
+    background-color: var(--color-primary-main);
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+    animation: progressbar-animation .4s ease-in-out;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes progressbar-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

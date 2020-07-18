@@ -1,14 +1,19 @@
 :root {
   // btn color
   --color-btn-primary: var(--color-primary-main);
-  --color-btn-primary-active: var(--color-dark-main);
-  --color-btn-primary-hover: rgba(--color-light-main);
-  --color-btn-primary-disabled: var(--color-primary-grey);
+  --color-btn-primary-active: var(--color-primary-darker);
+  --color-btn-primary-hover: var(--color-primary-mid-light);
+  --color-btn-primary-disabled: var(--color-neutral-mid-light);
 
-  --color-btn-primary-text: var(--color-primary-white);
-  --color-btn-primary-active-text: var(--color-primary-white);
-  --color-btn-primary-disabled-text: var(--color-dark-grey);
+  --color-btn-primary-text: var(--color-primary-lightest);
+  --color-btn-primary-active-text: var(--color-primary-mid-lightest);
+  --color-btn-primary-disabled-text: var(--color-neutral-dark);
 
-  --color-checkbox-bg: var(--color-dark-main);
+  --color-checkbox-bg: var(--color-primary-main);
   --color-checkbox-tick: var(--color-primary-white);
+
+  //secondary
+  --color-btn-secondary: #ffffff;
+
+  --color-btn-secondary-text: var(--color-primary-main);
 }
