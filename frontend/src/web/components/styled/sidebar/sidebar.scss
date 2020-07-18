@@ -1,0 +1,147 @@
+.sidebar {
+  background: var(--color-sidebar-bg);
+  height: 100vh;
+  flex: 0 0 27rem;
+  padding-top: 20px;
+  overflow-y: hidden;
+  transition: all 0.2s ease-in-out;
+  position: fixed;
+  z-index: 999;
+}
+
+.sidebar-collapse {
+  width: 70px;
+}
+
+.sidebar-menu {
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  .sidebar-collapse & {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  &--icon {
+    color: var(--color-sidebar-component);
+    width: 18px;
+    height: 18px;
+
+    .sidebar-collapse & {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.sidebar-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  &--name {
+    margin-left: 10px;
+    font: var(--font-small);
+    font-weight: 400;
+    display: block;
+    animation: show-full 0.8s ease-in-out both;
+
+    .sidebar-collapse & {
+      display: none;
+    }
+  }
+
+  &--img {
+    border: 2px solid var(--color-border-avatar);
+    width: 40px;
+    border-radius: 100px;
+    transition: all 0.3s ease-in-out;
+
+    .sidebar-collapse & {
+      width: 30px;
+    }
+  }
+
+  &--role {
+    color: var(--color-neutral-mid-lighter);
+    font: var(--font-smaller);
+  }
+}
+
+.sidebar-profilebox {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+
+  .sidebar-collapse & {
+    padding: 0;
+  }
+}
+
+.sidebar-components {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.sidebar-components__main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &:not(:last-child) {
+    border-bottom: var(--border-light);
+    padding-bottom: 40px;
+  }
+  &:not(:first-child) {
+    margin-top: 15px;
+  }
+
+  .sidebar-collapse & {
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.sidebar-components__item {
+  display: flex;
+  width: 100%;
+  padding: 10px 0;
+
+  .sidebar-collapse & {
+    justify-content: center;
+  }
+
+  &--name {
+    margin-left: 20px;
+    color: var(--color-sidebar-component);
+    letter-spacing: 1px;
+
+    .sidebar-collapse & {
+      display: none;
+    }
+  }
+
+  &--icon {
+    color: var(--color-sidebar-component);
+    padding-left: 40px;
+
+    .sidebar-collapse & {
+      padding-left: 0px;
+    }
+  }
+}
+
+@keyframes show-full {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -15,13 +15,14 @@ const Button = forwardRef(
       size = 'normal',
       width,
       onClick,
-      disabled
+      disabled,
+      fullWidth
     },
     ref
   ) => {
     return (
       <button
-        style={{ width: { width } }}
+        style={{ width: fullWidth ? '100%' : width }}
         type={type}
         className={clsx(
           `btn btn--${variant} btn--${size}`,
@@ -45,13 +46,15 @@ Button.propTypes = {
   variant: PropTypes.string,
   size: PropTypes.oneOf(['normal', 'small', 'big']),
   disabled: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  fullWidth: PropTypes.number
 }
 
 Button.defaultProps = {
   disabled: false,
   type: 'button',
-  width: 40,
+  width: null,
+  fullWidth: null,
   variant: 'primary',
   size: 'normal',
   onClick: () => {},

@@ -1,0 +1,34 @@
+.circularprogress-box {
+  display: inline-block;
+  position: relative;
+
+  & svg {
+    width: auto;
+  }
+
+  --color-circularprogress-outer: var(--color-secondary-light-main);
+  --color-circularprogress-inner: var(--color-primary-main);
+}
+
+.circularprogress {
+  display: block;
+  max-width: 100%;
+  transform: rotate(270deg);
+}
+
+.circularprogress-bg,
+.circularprogress-determinate {
+  fill: none;
+}
+
+.circularprogress-determinate {
+  transition: 0.5s ease-in all;
+}
+
+.circularprogress-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 0;
+}

@@ -5,7 +5,7 @@ import Page500 from '../model/pages/static/500'
 import LoginPage from '../model/pages/login'
 import Register from '../model/pages/register/company'
 import RegisterPersonal from '../model/pages/register/personal'
-import Dashboard from '../model/pages/Dashboard'
+import Dashboard from '../model/pages/dashboard'
 
 /**
  * @ Redux

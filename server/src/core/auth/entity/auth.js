@@ -1,5 +1,3 @@
-import { hash } from 'argon2'
-
 const modelAuth = ({ validate, makeHash }) => {
   return async function makeAuthUser({
     email,
@@ -13,8 +11,6 @@ const modelAuth = ({ validate, makeHash }) => {
       password_confirm = password_confirm && password_confirm.trim()
       email = email && email.trim().toLowerCase()
       user_type = user_type && user_type.trim()
-
-      console.log(others)
 
       validate({
         password,

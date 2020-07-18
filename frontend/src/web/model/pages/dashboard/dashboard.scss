@@ -1,0 +1,24 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100vw;
+  //overflow-x: hidden;
+  background-color: var(--color-neutral-lightest);
+}
+
+.dashboard-box {
+  padding-bottom: 30px;
+  min-height: 100vh;
+
+  padding-left: 70px;
+  width: calc(100% - 60px);
+  transition: all .4s ease;
+}
+
+.dashboard-box__minwidth{
+  padding-left: 245px;
+}
+
+.dashboard-box__main {
+  width: 100%;
+}

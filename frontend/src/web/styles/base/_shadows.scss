@@ -1,0 +1,13 @@
+:root {
+  --shadow-single-smallest: 0 1px 3px hsla(0, 0%, 0%, .2);
+  --shadow-single-small: 0 4px 6px hsla(0, 0%, 0%, .2);
+  --shadow-single-mid: 0 5px 15px hsla(0, 0%, 0%, .2);
+  --shadow-single-large: 0 10px 24px hsla(0, 0%, 0%, .2);
+  --shadow-single-largest: 0 15px 35px hsla(0, 0%, 0%, .2);
+
+  --shadow-combined-smallest: 0 1px 3px hsla(0, 0%, 0%, .12), 0 1px 2px hsla(0, 0%, 0%, .24);
+  --shadow-combined-small: 0 3px 6px hsla(0, 0%, 0%, .15), 0 2px 4px hsla(0, 0%, 0%, .12);
+  --shadow-combined-mid: 0 10px 20px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
+  --shadow-combined-large: 0 15px 25px hsla(0, 0%, 0%, .15), 0 5px 10px hsla(0, 0%, 0%, .05);
+  --shadow-combined-largest: 0 20px 40px hsla(0, 0%, 0%, .2);
+}
